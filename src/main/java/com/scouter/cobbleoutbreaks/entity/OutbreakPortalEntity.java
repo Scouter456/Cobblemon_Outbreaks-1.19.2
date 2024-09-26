@@ -150,6 +150,8 @@ public class OutbreakPortalEntity {
         if(!checkLevel){
             pokemonStillValidFirstTime();
         }
+
+        //todo add correct time e.g. night, day etc.
         if (!level.isClientSide) {
             boolean containsPokemon = pokemonStillValid();
             if (getWave() >= this.getOutbreakPortal().getSpeciesData().getWaves() && !containsPokemon) {
