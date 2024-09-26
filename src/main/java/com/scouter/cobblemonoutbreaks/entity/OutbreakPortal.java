@@ -1,7 +1,10 @@
 package com.scouter.cobblemonoutbreaks.entity;
 
 import com.cobblemon.mod.common.api.entity.Despawner;
+import com.cobblemon.mod.common.api.events.CobblemonEvents;
+import com.cobblemon.mod.common.api.events.entity.SpawnEvent;
 import com.cobblemon.mod.common.api.pokemon.PokemonProperties;
+import com.cobblemon.mod.common.api.spawning.context.SpawningContext;
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
 import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.mojang.datafixers.util.Either;
@@ -238,7 +241,6 @@ public class OutbreakPortal {
             //MinecraftForge.EVENT_BUS.post(spawnEvent);
             boolean allowSpawn = true;
             allowSpawn = CobblemonOutbreaksEvent.Events.POKEMON_SPAWN.invoker().onPokemonSpawn(level, pokemonEntity, spawnPos, allowSpawn);
-
 
             if(allowSpawn) {
                 level.addFreshEntity(pokemonEntity);

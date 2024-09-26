@@ -146,7 +146,6 @@ public class CobblemonOutbreaks implements ModInitializer {
                 outbreakPortal.removeFromSet(pokemonUUID);
             }
             outbreakManager.removePokemonUUID(pokemonUUID);
-            //LOGGER.info("This one fainted!" + event.getPokemon().getSpecies());
             return Unit.INSTANCE;
         });
     }
@@ -167,13 +166,6 @@ public class CobblemonOutbreaks implements ModInitializer {
     }
 
     public static void entityLoad() {
-        CobblemonOutbreaksEvent.Events.OUTBREAK_POKEMON_CAPTURE.register((level, player ,entity, pokemon) -> {
-            LOGGER.info("Pokemon Captured " + pokemon.getSpecies());
-        });
-
-        CobblemonOutbreaksEvent.Events.OUTBREAK_POKEMON_KILLED.register((level, entity, pokemon) -> {
-            LOGGER.info("Pokemon Killed " + pokemon.getSpecies());
-        });
         ServerEntityEvents.ENTITY_LOAD.register((entity, server) -> {
             if (server.getLevel().isClientSide || !(entity instanceof PokemonEntity pokemonEntity)) return;
             ServerLevel serverLevel = (ServerLevel) server.getLevel();
